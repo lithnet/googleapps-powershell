@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*"
+           Name="Lithnet GoogleApps PowerShell Module"
+           Language="1033"
+           Version="1.0.5937"
+           Manufacturer="Lithnet"
+           UpgradeCode="4c728978-6058-4bf8-b0b2-8a12f51b69da">
+    
+    <Package InstallerVersion="200" 
+             Compressed="yes" 
+             InstallScope="perMachine"  
+             InstallPrivileges="elevated"
+             Manufacturer="Lithnet"
+             Platform="x64"/>
+    
+    <Media Id="1" Cabinet="Cab1.cab" EmbedCab="yes"/>
+    
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+
+    <Feature Id="ProductFeature" Title="Lithnet.GoogleApps.PowerShell.Installer" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+    </Feature>
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="System64Folder">
+        <Directory Id="PSROOT" Name="WindowsPowerShell">
+          <Directory Id="PSV1ROOT" Name ="v1.0">
+            <Directory Id ="PSMODULESROOT" Name="Modules">
+              <Directory Id="PSMODULEPATH" Name="LithnetGoogleAppsPS" />
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+  </Product>
+  
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="PSMODULEPATH">
+      <Component Id="cmp3435151055d24093a8c0be1943de3f25" Guid="*" Win64="yes">
+        <File Id="fil386e0e1ad3dd4fd3ab64d5e6cf72eefd" KeyPath="yes" Source="$(var.Lithnet.GoogleApps.PowerShell.TargetDir)\Lithnet.GoogleApps.PowerShell.dll" />
+      </Component>
+      <Component Id="cmp470abb8824f14b9884df9991b67dcfe3" Guid="*" Win64="yes">
+        <File Id="filabf23dff25514674b34b30a3a002504b" KeyPath="yes" Source="$(var.Lithnet.GoogleApps.PowerShell.TargetDir)\LithnetGoogleAppsPS.psd1" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>
