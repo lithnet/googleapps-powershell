@@ -12,7 +12,7 @@ namespace Lithnet.GoogleApps.PowerShell
     [Cmdlet(VerbsCommon.Remove, "GoogleAppsUser")]
     public class RemoveGoogleAppsUser : Cmdlet
     {
-        [Parameter(Mandatory = true, Position = 1)]
+        [Parameter(Mandatory = true, Position = 1, ValueFromPipeline = true)]
         public object User { get; set; }
 
         protected override void ProcessRecord()
