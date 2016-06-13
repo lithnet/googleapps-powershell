@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lithnet.GoogleApps.PowerShell", "Lithnet.GoogleApps.PowerShell\Lithnet.GoogleApps.PowerShell.csproj", "{39C3E910-3EEE-49D5-AF75-D798D97E4340}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lithnet.GoogleApps", "..\googleapps-client\Lithnet.GoogleApps.csproj", "{F26EAC4C-F7F2-4AEC-916D-3923B2916DA3}"
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Lithnet.GoogleApps.PowerShell.Installer", "Lithnet.GoogleApps.PowerShell.Installer\Lithnet.GoogleApps.PowerShell.Installer.wixproj", "{5CA77E21-E240-425D-AC8D-B7EC24846469}"
 EndProject
@@ -29,16 +27,6 @@ Global
 		{39C3E910-3EEE-49D5-AF75-D798D97E4340}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{39C3E910-3EEE-49D5-AF75-D798D97E4340}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{39C3E910-3EEE-49D5-AF75-D798D97E4340}.Release|x86.ActiveCfg = Release|Any CPU
-		{F26EAC4C-F7F2-4AEC-916D-3923B2916DA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F26EAC4C-F7F2-4AEC-916D-3923B2916DA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F26EAC4C-F7F2-4AEC-916D-3923B2916DA3}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{F26EAC4C-F7F2-4AEC-916D-3923B2916DA3}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{F26EAC4C-F7F2-4AEC-916D-3923B2916DA3}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{F26EAC4C-F7F2-4AEC-916D-3923B2916DA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F26EAC4C-F7F2-4AEC-916D-3923B2916DA3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F26EAC4C-F7F2-4AEC-916D-3923B2916DA3}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{F26EAC4C-F7F2-4AEC-916D-3923B2916DA3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{F26EAC4C-F7F2-4AEC-916D-3923B2916DA3}.Release|x86.ActiveCfg = Release|Any CPU
 		{5CA77E21-E240-425D-AC8D-B7EC24846469}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{5CA77E21-E240-425D-AC8D-B7EC24846469}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{5CA77E21-E240-425D-AC8D-B7EC24846469}.Debug|Mixed Platforms.Build.0 = Debug|x86

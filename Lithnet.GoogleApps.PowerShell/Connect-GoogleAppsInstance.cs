@@ -17,9 +17,9 @@ namespace Lithnet.GoogleApps.PowerShell
     [Cmdlet(VerbsCommunications.Connect, "GoogleAppsInstance")]
     public class ConnectGoogleAppsInstance : Cmdlet
     {
-        private static string[] RequiredScopes = new string[] 
-        { 
-            DirectoryService.Scope.AdminDirectoryUser, 
+        private static string[] RequiredScopes = new string[]
+        {
+            DirectoryService.Scope.AdminDirectoryUser,
         };
 
         [Parameter(Mandatory = true, Position = 1)]
@@ -41,7 +41,7 @@ namespace Lithnet.GoogleApps.PowerShell
                    this.Mail,
                    GetCertificate(this.CertificateFile, this.CertificatePassword));
 
-            ConnectionPools.InitializePools(creds, 1, 1);
+            ConnectionPools.InitializePools(creds, 1, 1, 1, 1);
         }
 
         public static ServiceAccountCredential GetCredentials(string serviceAccountEmailAddress, string userEmailAddress, X509Certificate2 cert)
