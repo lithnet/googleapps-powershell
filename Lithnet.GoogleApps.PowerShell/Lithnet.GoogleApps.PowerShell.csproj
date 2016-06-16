@@ -87,8 +87,8 @@
       <HintPath>..\packages\Google.GData.Extensions.2.2.0.0\lib\Google.GData.Extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Lithnet.GoogleApps, Version=1.0.6008.26434, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Lithnet.GoogleApps.1.0.6008.26434\lib\net452\Lithnet.GoogleApps.dll</HintPath>
+    <Reference Include="Lithnet.GoogleApps, Version=1.0.6011.18375, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lithnet.GoogleApps.1.0.6011.18375\lib\net452\Lithnet.GoogleApps.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
