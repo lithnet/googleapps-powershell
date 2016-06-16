@@ -32,7 +32,7 @@ namespace Lithnet.GoogleApps.PowerShell
             }
             else if (this.UserKey.Contains("@"))
             {
-                foreach (User u in UserRequestFactory.GetDeletedUsers("my_customer", null))
+                foreach (User u in UserRequestFactory.GetDeletedUsers(Global.CustomerID, null))
                 {
                     if (u.PrimaryEmail.Equals(this.UserKey, StringComparison.CurrentCultureIgnoreCase))
                     {

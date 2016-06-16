@@ -20,6 +20,7 @@ namespace Lithnet.GoogleApps.PowerShell
         private static string[] RequiredScopes = new string[]
         {
             DirectoryService.Scope.AdminDirectoryUser,
+            DirectoryService.Scope.AdminDirectoryDomainReadonly,
         };
 
         [Parameter(Mandatory = true, Position = 1)]
@@ -34,6 +35,9 @@ namespace Lithnet.GoogleApps.PowerShell
         [Parameter(Mandatory = true, Position = 4)]
         public string CertificatePassword { get; set; }
 
+        [Parameter(Mandatory = false, Position = 4)]
+        public string CustomerID { get; set; }
+
         protected override void ProcessRecord()
         {
             var creds = GetCredentials(
@@ -42,6 +46,8 @@ namespace Lithnet.GoogleApps.PowerShell
                    GetCertificate(this.CertificateFile, this.CertificatePassword));
 
             ConnectionPools.InitializePools(creds, 1, 1, 1, 1);
+
+            Global.CustomerID = this.CustomerID ?? "my_customer";
         }
 
         public static ServiceAccountCredential GetCredentials(string serviceAccountEmailAddress, string userEmailAddress, X509Certificate2 cert)

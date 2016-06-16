@@ -11,32 +11,26 @@ using Lithnet.GoogleApps.ManagedObjects;
 
 namespace Lithnet.GoogleApps.PowerShell
 {
-    [Cmdlet(VerbsCommon.Get, "GoogleAppsUser")]
-    public class GetGoogleAppsUser : Cmdlet
+    [Cmdlet(VerbsCommon.Get, "GoogleAppsDomain")]
+    public class GetGoogleAppsDomain : Cmdlet
     {
         [Parameter(ValueFromPipeline = true, Mandatory = false, Position = 1)]
         public string ID { get; set; }
 
         protected override void ProcessRecord()
         {
-            BlockingCollection<object> users = new BlockingCollection<object>();
-
             if (this.ID == null)
             {
-                Task t = new Task(() =>
-                {
-                    UserRequestFactory.StartImport(Global.CustomerID, users);
-                });
-                t.Start();
+                var domains = DomainsRequestFactory.GetDomains(Global.CustomerID);
 
-                foreach (User user in users.GetConsumingEnumerable().OfType<User>())
+                foreach (Domain d in domains.Domains)
                 {
-                    this.WriteObject(user);
+                    this.WriteObject(d);
                 }
             }
             else
             {
-                this.WriteObject(UserRequestFactory.Get(this.ID));
+                this.WriteObject(DomainsRequestFactory.GetDomain(Global.CustomerID, this.ID));
             }
         }
     }

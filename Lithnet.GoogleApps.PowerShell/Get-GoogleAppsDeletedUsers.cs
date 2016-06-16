@@ -14,14 +14,9 @@ namespace Lithnet.GoogleApps.PowerShell
     [Cmdlet(VerbsCommon.Get, "GoogleAppsDeletedUsers")]
     public class GetGoogleAppsDeletedUsers : Cmdlet
     {
-        [Parameter(ValueFromPipeline = false, Mandatory = false, Position = 1)]
-        public string CustomerID { get; set; }
-
         protected override void ProcessRecord()
         {
-            string cid = this.CustomerID ?? "my_customer";
-
-            foreach (User u in UserRequestFactory.GetDeletedUsers(cid, null))
+            foreach (User u in UserRequestFactory.GetDeletedUsers(Global.CustomerID, null))
             {
                 this.WriteObject(u);
             }
