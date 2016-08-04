@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Management.Automation;
-using System.Collections;
-using Lithnet.GoogleApps;
 using System.Security.Cryptography.X509Certificates;
-using Google.Apis;
-using Google.Apis.Auth;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Admin.Directory.directory_v1;
 
@@ -17,10 +9,10 @@ namespace Lithnet.GoogleApps.PowerShell
     [Cmdlet(VerbsCommunications.Connect, "GoogleAppsInstance")]
     public class ConnectGoogleAppsInstance : Cmdlet
     {
-        private static string[] RequiredScopes = new string[]
-        {
+        private static string[] requiredScopes = {
             DirectoryService.Scope.AdminDirectoryUser,
             DirectoryService.Scope.AdminDirectoryDomainReadonly,
+            "http://www.google.com/m8/feeds/contacts/",
         };
 
         [Parameter(Mandatory = true, Position = 1)]
@@ -35,7 +27,7 @@ namespace Lithnet.GoogleApps.PowerShell
         [Parameter(Mandatory = true, Position = 4)]
         public string CertificatePassword { get; set; }
 
-        [Parameter(Mandatory = false, Position = 4)]
+        [Parameter(Mandatory = false, Position = 5)]
         public string CustomerID { get; set; }
 
         protected override void ProcessRecord()
@@ -55,7 +47,7 @@ namespace Lithnet.GoogleApps.PowerShell
             return new ServiceAccountCredential(
                 new ServiceAccountCredential.Initializer(serviceAccountEmailAddress)
                 {
-                    Scopes = RequiredScopes,
+                    Scopes = ConnectGoogleAppsInstance.requiredScopes,
                     User = userEmailAddress
                 }
                 .FromCertificate(cert));

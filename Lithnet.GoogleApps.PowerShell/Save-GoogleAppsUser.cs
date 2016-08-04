@@ -22,7 +22,7 @@ namespace Lithnet.GoogleApps.PowerShell
         {
             string id = this.ID ?? this.User.Id;
 
-            this.User = UserRequestFactory.Update(this.User, id);
+            this.WriteObject(UserRequestFactory.Update(this.User, id));
         }
     }
 }

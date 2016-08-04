@@ -119,13 +119,17 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="Get-GoogleAppsDeletedUsers.cs" />
     <Compile Include="Get-GoogleAppsDomain.cs" />
+    <Compile Include="Get-GoogleAppsContact.cs" />
     <Compile Include="Global.cs" />
+    <Compile Include="New-GoogleAppsContact.cs" />
+    <Compile Include="Remove-GoogleAppsContact.cs" />
     <Compile Include="Remove-GoogleAppsUserAlias.cs" />
     <Compile Include="Connect-GoogleAppsInstance.cs" />
     <Compile Include="Add-GoogleAppsUserAlias.cs" />
     <Compile Include="New-GoogleAppsUser.cs" />
     <Compile Include="Restore-GoogleAppsUser.cs" />
     <Compile Include="Remove-GoogleAppsUser.cs" />
+    <Compile Include="Save-GoogleAppsContact.cs" />
     <Compile Include="Set-GoogleAppsUserPassword.cs" />
     <Compile Include="Save-GoogleAppsUser.cs" />
     <Compile Include="Get-GoogleAppsUser.cs" />
