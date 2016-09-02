@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Management.Automation;
-using System.Collections;
-using Lithnet.GoogleApps;
 using Lithnet.GoogleApps.ManagedObjects;
 
 namespace Lithnet.GoogleApps.PowerShell
@@ -43,7 +37,7 @@ namespace Lithnet.GoogleApps.PowerShell
 
                 if (key == null)
                 {
-                    throw new ItemNotFoundException(string.Format("The user {0} was not found in the deleted items collection", this.UserKey));
+                    throw new ItemNotFoundException($"The user {this.UserKey} was not found in the deleted items collection");
                 }
             }
             else

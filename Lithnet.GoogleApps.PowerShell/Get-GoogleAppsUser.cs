@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Management.Automation;
-using System.Collections;
-using Lithnet.GoogleApps;
-using System.Collections.Concurrent;
+﻿using System.Management.Automation;
 using Lithnet.GoogleApps.ManagedObjects;
 
 namespace Lithnet.GoogleApps.PowerShell
@@ -19,17 +11,9 @@ namespace Lithnet.GoogleApps.PowerShell
 
         protected override void ProcessRecord()
         {
-            BlockingCollection<object> users = new BlockingCollection<object>();
-
             if (this.ID == null)
             {
-                Task t = new Task(() =>
-                {
-                    UserRequestFactory.StartImport(Global.CustomerID, users);
-                });
-                t.Start();
-
-                foreach (User user in users.GetConsumingEnumerable().OfType<User>())
+                foreach (User user in UserRequestFactory.GetUsers(Global.CustomerID))
                 {
                     this.WriteObject(user);
                 }
