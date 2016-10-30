@@ -2,6 +2,7 @@
 using System.Security.Cryptography.X509Certificates;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Admin.Directory.directory_v1;
+using Google.Apis.Groupssettings.v1;
 
 namespace Lithnet.GoogleApps.PowerShell
 {
@@ -9,6 +10,9 @@ namespace Lithnet.GoogleApps.PowerShell
     public class ConnectGoogleAppsInstance : Cmdlet
     {
         private static string[] requiredScopes = {
+            DirectoryService.Scope.AdminDirectoryGroup,
+            DirectoryService.Scope.AdminDirectoryGroupMember,
+            GroupssettingsService.Scope.AppsGroupsSettings,
             DirectoryService.Scope.AdminDirectoryUser,
             DirectoryService.Scope.AdminDirectoryDomainReadonly,
             "http://www.google.com/m8/feeds/contacts/",

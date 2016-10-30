@@ -87,8 +87,8 @@
       <HintPath>..\packages\Google.GData.Extensions.2.2.0.0\lib\Google.GData.Extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Lithnet.GoogleApps, Version=1.0.6089.23020, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Lithnet.GoogleApps.1.0.6089.23020\lib\net452\Lithnet.GoogleApps.dll</HintPath>
+    <Reference Include="Lithnet.GoogleApps, Version=1.0.6147.19320, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lithnet.GoogleApps.1.0.6147.19320\lib\net452\Lithnet.GoogleApps.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
@@ -120,6 +120,7 @@
     <Compile Include="Get-GoogleAppsDeletedUsers.cs" />
     <Compile Include="Get-GoogleAppsDomain.cs" />
     <Compile Include="Get-GoogleAppsContact.cs" />
+    <Compile Include="Get-GoogleAppsGroup.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="New-GoogleAppsContact.cs" />
     <Compile Include="Remove-GoogleAppsContact.cs" />
@@ -130,6 +131,7 @@
     <Compile Include="Restore-GoogleAppsUser.cs" />
     <Compile Include="Remove-GoogleAppsUser.cs" />
     <Compile Include="Save-GoogleAppsContact.cs" />
+    <Compile Include="Save-GoogleAppsGroup.cs" />
     <Compile Include="Set-GoogleAppsUserPassword.cs" />
     <Compile Include="Save-GoogleAppsUser.cs" />
     <Compile Include="Get-GoogleAppsUser.cs" />
@@ -191,6 +193,10 @@ foreach (var item in filesToCleanup)
   <Target Name="CleanReferenceCopyLocalPaths" AfterTargets="AfterBuild;NonWinFodyTarget">
     <CosturaCleanup Config="FodyWeavers.xml" Files="@(ReferenceCopyLocalPaths->'$(OutDir)%(DestinationSubDirectory)%(Filename)%(Extension)')" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>"C:\Program Files (x86)\Windows Kits\8.1\bin\x64\signtool.exe" sign /sha1 5ce168989b1359309dddee460c10e96fa60fa78b /t http://time.certum.pl /v $(TargetFileName)
+powershell.exe -Command Set-AuthenticodeSignature -TimestampServer http://time.certum.pl -FilePath "$(TargetDir)LithnetGoogleAppsPS.psd1" -Certificate (Get-ChildItem -Path "Cert:\CurrentUser\My\5CE168989B1359309DDDEE460C10E96FA60FA78B")</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

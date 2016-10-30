@@ -3,7 +3,7 @@
   <Product Id="*"
            Name="Lithnet GoogleApps PowerShell Module"
            Language="1033"
-           Version="1.0.6089"
+           Version="1.0.6090"
            Manufacturer="Lithnet"
            UpgradeCode="4c728978-6058-4bf8-b0b2-8a12f51b69da">
     
