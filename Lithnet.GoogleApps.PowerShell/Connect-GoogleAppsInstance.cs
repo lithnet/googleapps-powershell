@@ -3,6 +3,7 @@ using System.Security.Cryptography.X509Certificates;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Admin.Directory.directory_v1;
 using Google.Apis.Groupssettings.v1;
+using Lithnet.GoogleApps.ManagedObjects;
 
 namespace Lithnet.GoogleApps.PowerShell
 {
@@ -41,7 +42,7 @@ namespace Lithnet.GoogleApps.PowerShell
                    GetCertificate(this.CertificateFile, this.CertificatePassword));
 
             ConnectionPools.InitializePools(creds, 1, 1, 1, 1);
-
+            GroupMembership.GetInternalDomains(this.CustomerID ?? "my_customer");
             Global.CustomerID = this.CustomerID ?? "my_customer";
         }
 
